@@ -31,39 +31,40 @@ export const Navbar = () => {
                     </Link>
                 </div>
                 <ul className="links">
-                <li>
+                    <li>
                         <NavLink
                             to="/"
                         >
-                            Home
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to="/products"
-                        >
-                            Products
+                            INICIO
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
                             to="/about"
                         >
-                            About
+                            ACERCA DE
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
-                            to="/services"
+                            to="/volunteers"
                         >
-                            Services
+                            VOLUNTARIOS
                         </NavLink>
                     </li>
+                    <li>
+                        <NavLink
+                            to="/activities"
+                        >
+                            ACTIVIDADES
+                        </NavLink>
+                    </li>
+                    
                     <li>
                         <NavLink
                             to="/contact"
                         >
-                            Contact
+                            CONTACTO
                         </NavLink>
                     </li>
                 </ul>
@@ -73,7 +74,7 @@ export const Navbar = () => {
                         className='action_btn'
                         to="/login"
                     >
-                        Login
+                        LOGIN
                     </Link>
                     : <li>
                         <Link

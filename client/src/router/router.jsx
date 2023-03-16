@@ -2,9 +2,19 @@ import React from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import { LayoutPage } from '../layout/LayoutPage'
 import { LoginPage } from '../auth/'
-import { CreateCategoria, CreateProduct, LandingPage, ProductosPage, ProfilePage, UpdateProfile, UploadImage } from '../abuelos'
-import { PrivateRouter } from './PrivateRouter'
-import { PublicRouter } from './PublicRouter'
+import {
+    About,
+    Activities,
+    Contact,
+    CreateCategoria,
+    CreateProduct,
+    LandingPage,
+    ProfilePage,
+    UpdateProfile,
+    UploadImage,
+    Volunteers
+} from '../abuelos'
+import { PrivateRouter, PublicRouter } from './'
 
 
 
@@ -18,6 +28,26 @@ export const router = createBrowserRouter([
                 path: '/',
                 element:
                     <LandingPage />
+            },
+            {
+                path: '/volunteers',
+                element:
+                    <Volunteers />
+            },
+            {
+                path: '/activities',
+                element:
+                    <Activities />
+            },
+            {
+                path: '/about',
+                element:
+                    <About />
+            },
+            {
+                path: '/contact',
+                element:
+                    <Contact />
             },
             ,
             {
@@ -47,7 +77,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'products',
-                element: <ProductosPage />,
+                element: <Activities />,
 
             },
         ]
