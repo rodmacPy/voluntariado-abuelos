@@ -2,15 +2,9 @@ import React from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import { LayoutPage } from '../layout/LayoutPage'
 import { LoginPage } from '../auth/'
-import { AnimalForm, DCPage, HeroPage, LandingPage, MarvelPage, SearchPage } from '../farm'
+import { CreateCategoria, CreateProduct, LandingPage, ProductosPage, ProfilePage, UpdateProfile, UploadImage } from '../abuelos'
 import { PrivateRouter } from './PrivateRouter'
 import { PublicRouter } from './PublicRouter'
-import { ProfilePage } from '../farm/pages/ProfilePage'
-import { UpdateProfile } from '../farm/components/UpdateProfile'
-import { UploadImage } from '../farm/components/UploadImage'
-import { CreateCategoria } from '../farm/components/CreateCategoria'
-import { CreateProduct } from '../farm/components/CreateProduct'
-import { ProductosPage } from '../farm/pages/ProductosPage'
 
 
 
@@ -50,11 +44,6 @@ export const router = createBrowserRouter([
                         element: <CreateCategoria />
                     }
                 ]
-            },
-            {
-                path: 'search',
-                element: <SearchPage />,
-
             },
             {
                 path: 'products',
