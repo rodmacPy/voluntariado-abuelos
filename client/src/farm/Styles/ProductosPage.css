@@ -1,0 +1,14 @@
+.productos{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-cart{
+    margin: 40px;
+    width: 200px;
+    height: 200px;
+}
+
+.product-cart img{
+    height: 100%;
+}
