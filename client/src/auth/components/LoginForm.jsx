@@ -37,7 +37,7 @@ export const LoginForm = ({ handleToggle, loginRef}) => {
                 required
             />
             <button type="submit" className="submit-btn">
-                Login
+                Acceso
             </button>
             <br />
             <center>
@@ -50,7 +50,7 @@ export const LoginForm = ({ handleToggle, loginRef}) => {
                 <center>
                     New User ? Then{' '}
                     <button type="button" className="link-btn" onClick={handleToggle}>
-                        Register !
+                        Registro !
                     </button>
                 </center>
             </p>

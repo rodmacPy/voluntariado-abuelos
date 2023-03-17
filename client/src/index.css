@@ -7,7 +7,7 @@
 
 body {
     height: 100vh;
-    background-color: #008080;
+    background-color: #fff;
 }
 
 header li {
@@ -67,7 +67,6 @@ header {
 }
 
 .action_btn {
-    background-color: #005e804c;
     color: #F0FFF0;
     padding: 0.5rem 1rem;
     border: 1px #F0FFF0;
@@ -131,7 +130,7 @@ section#hero {
     text-align: center;
     color: black;
     background-color: #fff;
-    background-image: url('../assets/ilustracion-concepto-voluntariado.png');
+    background-image: url('../assets//ilustracion-concepto-voluntariado.png');
     background-size: contain;
     background-position: right;
     background-repeat: no-repeat;

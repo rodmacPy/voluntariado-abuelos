@@ -1,14 +1,17 @@
 import React from 'react'
 import Typical from 'react-typical'
+import 'animate.css';
+
 //import '../Styles/LandingPage.css'
 
 export const LandingPage = () => {
     return (
         <>
-            <section id='hero'>
+            <section id='hero' className='animate__animated animate__fadeInLeft'>
                 <div className='hero-div'>
-                    <h1>Bienvenidos</h1>
-                    <p>
+                        <h1 class="animate__animated animate__fadeInLeft">Bienvenidos</h1>
+                    
+                    <p class="animate__animated animate__fadeInLeft">
                         <Typical
                         loop={Infinity}
                         wrapper='b'

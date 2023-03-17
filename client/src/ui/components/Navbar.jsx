@@ -27,7 +27,7 @@ export const Navbar = () => {
                     <Link
                         to="/"
                     >
-                        <h2>Abuelos en Comunidad</h2>
+                        <h2 class="animate__animated animate__fadeInLeft">Abuelos en Comunidad</h2>
                     </Link>
                 </div>
                 <ul className="links">
@@ -35,35 +35,35 @@ export const Navbar = () => {
                         <NavLink
                             to="/"
                         >
-                            Inicio
+                            <h4 class="animate__animated animate__fadeInLeft">Inicio</h4>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
                             to="/products"
                         >
-                            Voluntarios
+                            <h4 class="animate__animated animate__fadeInLeft">Voluntarios</h4>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
                             to="/services"
                         >
-                            Actividades
+                            <h4 class="animate__animated animate__fadeInLeft">Actividades</h4>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
                             to="/about"
                         >
-                            Sobre Nosotros
+                            <h4 class="animate__animated animate__fadeInLeft">Sobre Nosotros</h4>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
                             to="/contact"
                         >
-                            Contacto
+                            <h4 class="animate__animated animate__fadeInLeft">Contacto</h4>
                         </NavLink>
                     </li>
                 </ul>
@@ -73,14 +73,14 @@ export const Navbar = () => {
                         className='action_btn'
                         to="/login"
                     >
-                        Login
+                        Acceso
                     </Link>
                     : <li>
                         <Link
                             className='action_btn'
                             to="/profile"
                         >
-                            Perfil
+                            <h4 class="animate__animated animate__fadeInLeft">Perfil</h4>
                         </Link>
                     </li>}
 

@@ -24,6 +24,7 @@ body {
     margin: 0;
     display: grid;
     place-content: center;
+    background-color: #fff;
 }
 
 h1 {

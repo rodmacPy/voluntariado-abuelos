@@ -74,12 +74,12 @@ export const RegisterForm = ({ handleToggle, registerRef }) => {
             />
             {errors.password && <div className="error-message">{errors.password}</div>}
             <button type="submit" className="submit-btn">
-                Register
+                Registro
             </button>
             <div className="toggle-text">
-                Already have an account?{' '}
+                ¿Ya tienes una cuenta?{' '}
                 <span className="toggle-link" onClick={handleToggle}>
-                    Login
+                    Acceso
                 </span>
             </div>
         </form>
