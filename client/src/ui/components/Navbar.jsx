@@ -23,11 +23,11 @@ export const Navbar = () => {
     return (
         <header>
             <nav className='navbar'>
-                <div className='logo'>
+                <div className='hero-div'>
                     <Link
                         to="/"
                     >
-                        Rodmac Gardens
+                        <h2>Abuelos en Comunidad</h2>
                     </Link>
                 </div>
                 <ul className="links">
@@ -35,35 +35,35 @@ export const Navbar = () => {
                         <NavLink
                             to="/"
                         >
-                            Home
+                            Inicio
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
                             to="/products"
                         >
-                            Products
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to="/about"
-                        >
-                            About
+                            Voluntarios
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
                             to="/services"
                         >
-                            Services
+                            Actividades
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/about"
+                        >
+                            Sobre Nosotros
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
                             to="/contact"
                         >
-                            Contact
+                            Contacto
                         </NavLink>
                     </li>
                 </ul>
@@ -80,7 +80,7 @@ export const Navbar = () => {
                             className='action_btn'
                             to="/profile"
                         >
-                            Profile
+                            Perfil
                         </Link>
                     </li>}
 
