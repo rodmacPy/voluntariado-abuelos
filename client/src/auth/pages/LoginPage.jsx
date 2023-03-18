@@ -109,9 +109,9 @@ export const LoginPage = () => {
     return (
         <>
             <Navbar />
-            <section>
+            <section className='animate__animated animate__fadeInRight'>
 
-                <div id="login-form" className="login-page animate__animated animate__fadeInLeft">
+                <div id="login-form" className="login-page animate__animated animate__bounce">
                     <div className="form-box">
                         <div className="button-box">
                             <div id='btn' ref={btnRef}></div>
@@ -120,7 +120,7 @@ export const LoginPage = () => {
                         </div>
 
 
-                        <form id="login" className="input-group-login animate__animated animate__fadeInLeft" onSubmit={handleSubmitLogin} ref={loginRef}>
+                        <form id="login" className="input-group-login" onSubmit={handleSubmitLogin} ref={loginRef}>
                             <input
                                 type="correo"
                                 className="input-field"
@@ -202,7 +202,7 @@ export const LoginPage = () => {
 
 
                 <div className="imgL1">
-                    <img className="animate__animated animate__fadeInLeft" src="../../../assets/ilustracion-concepto-voluntariado.png" alt="L1" />
+                    <img  src="../../../assets/ilustracion-concepto-voluntariado.png" alt="L1" />
                     
                 </div>
             </section>
