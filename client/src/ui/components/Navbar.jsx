@@ -23,14 +23,14 @@ export const Navbar = () => {
     return (
         <header>
             <nav className='navbar'>
-                <div className='logo'>
+                <div className='hero-div'>
                     <Link
                         to="/"
                     >
-                        Rodmac Gardens
+                        <h2 class="animate__animated animate__fadeInLeft">Abuelos en Comunidad</h2>
                     </Link>
                 </div>
-                <ul className="links">
+                <ul className="links class animate__animated animate__fadeInLeft">
                     <li>
                         <NavLink
                             to="/"
@@ -81,7 +81,7 @@ export const Navbar = () => {
                             className='action_btn'
                             to="/profile"
                         >
-                            Profile
+                            <h4 class="animate__animated animate__fadeInLeft">Perfil</h4>
                         </Link>
                     </li>}
 
