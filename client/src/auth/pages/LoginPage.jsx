@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import { Navbar } from '../../ui';
 import { AuthContext } from '../context';
 import './Login_Register.css';
-
+import 'animate.css';
 export const LoginPage = () => {
     const { login } = useContext(AuthContext)
     const navigate = useNavigate()
@@ -111,16 +111,16 @@ export const LoginPage = () => {
             <Navbar />
             <section>
 
-                <div id="login-form" className="login-page">
+                <div id="login-form" className="login-page animate__animated animate__fadeInLeft">
                     <div className="form-box">
                         <div className="button-box">
                             <div id='btn' ref={btnRef}></div>
-                            <button className='toggle-btn' onClick={() => loginStyle()}>Login</button>
-                            <button className='toggle-btn' onClick={() => register()}>Register</button>
+                            <button className='toggle-btn' onClick={() => loginStyle()}>Acceso</button>
+                            <button className='toggle-btn' onClick={() => register()}>Registro</button>
                         </div>
 
 
-                        <form id="login" className="input-group-login" onSubmit={handleSubmitLogin} ref={loginRef}>
+                        <form id="login" className="input-group-login animate__animated animate__fadeInLeft" onSubmit={handleSubmitLogin} ref={loginRef}>
                             <input
                                 type="correo"
                                 className="input-field"
@@ -140,17 +140,17 @@ export const LoginPage = () => {
                                 required
                             />
                             <button type="submit" className="submit-btn">
-                                Login
+                                Acceso
                             </button>
                             <br />
 
                             <div className="forgot center">
-                                <a href="#">Forgot Password ?</a>
+                                <a href="#">¿Has olvidado tu contraseña?</a>
                             </div>
 
                             <br />
                             <p className='center'>
-                                New User ? ThenRegister!
+                                ¿Nuevo usuario? Registrate.
                             </p>
                         </form>
 
@@ -187,12 +187,12 @@ export const LoginPage = () => {
                             />
                             {errors.password && <div className="error-message">{errors.password}</div>}
                             <button type="submit" className="submit-btn">
-                                Register
+                                Registro
                             </button>
                             <div className="toggle-text">
-                                Already have an account?{' '}
+                                ¿Ya tienes una cuenta?{' '}
                                 <span className="toggle-link">
-                                    Login
+                                    Acceso
                                 </span>
                             </div>
                         </form>
@@ -202,7 +202,8 @@ export const LoginPage = () => {
 
 
                 <div className="imgL1">
-                    <img src="../../../assets/L1-removebg-preview.png" alt="L1" />
+                    <img className="animate__animated animate__fadeInLeft" src="../../../assets/ilustracion-concepto-voluntariado.png" alt="L1" />
+                    
                 </div>
             </section>
         </>

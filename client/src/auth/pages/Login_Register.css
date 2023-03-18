@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 }
 .title a {
-	color: green;
+	color: rgb(0, 0, 0);
 	font-size: 44px;
 }
 .title a:hover {
@@ -20,6 +20,9 @@ section .imgL1 {
 	position: relative;
 	width: 100vh;
 	height: calc(100vh - 60px);
+	background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
 }
 
 section .imgL1 img {
@@ -67,7 +70,7 @@ section .login-page {
 	position: absolute;
 	width: 110px;
 	height: 100%;
-	background: linear-gradient(to right, skyblue,white);
+	background: linear-gradient(to right, #008080,white);
 	border-radius: 30px;
 	transition: .5s;
 }
@@ -100,13 +103,13 @@ section .login-page {
 	cursor: pointer;
 	display: block;
 	margin: 15px;
-	background: linear-gradient(to right, lightgreen,white);
+	background: linear-gradient(to right, #008080,white);
 	border: 0;
 	outline: none;
 	border-radius: 30px;
 }
 .submit-btn:hover {
-	background: skyblue;
+	background: #008080;
 }
 #login {
 	left: 50px;
@@ -139,11 +142,11 @@ section .login-page {
 
 .forgot a {
 	text-decoration: none;
-	color: green;
+	color: black;
 	font-size: 18px;
 }
 .forgot a:hover {
-	color: blue;
+	color: #008080;
 }
 
 .center{
