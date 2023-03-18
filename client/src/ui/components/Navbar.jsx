@@ -30,47 +30,26 @@ export const Navbar = () => {
                         <h2 class="animate__animated animate__fadeInLeft">Abuelos en Comunidad</h2>
                     </Link>
                 </div>
-                <ul className="links">
+                <ul className="links class animate__animated animate__fadeInLeft">
                     <li>
                         <NavLink
                             to="/"
                         >
-<<<<<<< HEAD
-                            <h4 class="animate__animated animate__fadeInLeft">Inicio</h4>
-=======
                             INICIO
->>>>>>> main
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
-<<<<<<< HEAD
-                            to="/products"
-                        >
-                            <h4 class="animate__animated animate__fadeInLeft">Voluntarios</h4>
-=======
                             to="/about"
                         >
                             ACERCA DE
->>>>>>> main
                         </NavLink>
                     </li>
                     <li>
                         <NavLink
                             to="/volunteers"
                         >
-<<<<<<< HEAD
-                            <h4 class="animate__animated animate__fadeInLeft">Actividades</h4>
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to="/about"
-                        >
-                            <h4 class="animate__animated animate__fadeInLeft">Sobre Nosotros</h4>
-=======
                             VOLUNTARIOS
->>>>>>> main
                         </NavLink>
                     </li>
                     <li>
@@ -85,11 +64,7 @@ export const Navbar = () => {
                         <NavLink
                             to="/contact"
                         >
-<<<<<<< HEAD
-                            <h4 class="animate__animated animate__fadeInLeft">Contacto</h4>
-=======
                             CONTACTO
->>>>>>> main
                         </NavLink>
                     </li>
                 </ul>
@@ -99,11 +74,7 @@ export const Navbar = () => {
                         className='action_btn'
                         to="/login"
                     >
-<<<<<<< HEAD
-                        Acceso
-=======
                         LOGIN
->>>>>>> main
                     </Link>
                     : <li>
                         <Link
