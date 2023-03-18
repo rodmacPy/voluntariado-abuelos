@@ -16,6 +16,7 @@ class Server {
             buscar: '/api/buscar',
             usuarios: '/api/usuarios',
             uploads: '/api/uploads',
+            role: '/api/role',
         }
 
         // Conectar a base de datos
@@ -56,6 +57,7 @@ class Server {
         this.app.use( this.paths.auth,          require('../routes/auth'));
         this.app.use( this.paths.usuarios,      require('../routes/usuarios'));
         this.app.use( this.paths.uploads,      require('../routes/uploads'));
+        this.app.use( this.paths.role,      require('../routes/role'));
     }
 
     listen() {

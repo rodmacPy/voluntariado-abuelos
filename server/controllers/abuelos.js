@@ -1,22 +1,21 @@
 
 const { Abuelo } = require('../models')
 
-const obtenerProductos = async (req, res) => {
+const obtenerAbuelos = async (req, res) => {
     const { limite = 10, desde = 0 } = req.query;
     const query = { estado: true }
 
-    const [total, Productos] = await Promise.all([
+    const [total, abuelos] = await Promise.all([
         Abuelo.countDocuments(query),
         Abuelo.find(query)
             .populate('usuario', 'nombre')
-            .populate('categoria', 'nombre')
             .skip(Number(desde))
             .limit(Number(limite))
     ])
     res.json({
         total,
         msg: 'get API - controlador - Productos',
-        Productos
+        Productos: abuelos
     });
 }
 const obtenerProducto = async(req, res = response ) => {
@@ -59,7 +58,7 @@ const crearAbuelo = async (req, res) => {
     res.status(201).json(abuelo);
 }
 
-const actualizarProducto = async (req, res) => {
+const actualizarAbuelo = async (req, res) => {
     const { id } = req.params;
     const { estado, usuario, ...data } = req.body;
 
@@ -69,22 +68,31 @@ const actualizarProducto = async (req, res) => {
 
     data.usuario = req.usuario._id;
 
-    const producto = await Abuelo.findByIdAndUpdate(id, data, { new: true })
+    const abuelo = await Abuelo.findByIdAndUpdate(id, data, { new: true })
 
-    res.json(producto);
+    res.json(abuelo);
 }
 
-const borrarProducto = async (req, res) => {
+
+const borrarAbuelo = async (req, res) => {
     const { id } = req.params;
-    const productoBorrada = await Abuelo.findByIdAndUpdate(id, { estado: false }, { new: true });
 
-    res.json(productoBorrada)
+    res.json(id);
 }
+
+
+// const borrarAbuelo = async (req, res) => {
+//     const { id } = req.params;
+//     console.log(id)
+//     // const abueloBorrado = await Abuelo.findByIdAndUpdate(id, { estado: false }, { new: true });
+
+//     // res.json(abueloBorrado)
+// }
 
 module.exports = {
-    actualizarProducto,
-    borrarProducto,
+    actualizarAbuelo,
+    borrarAbuelo,
     crearAbuelo,
     obtenerProducto,
-    obtenerProductos,
+    obtenerAbuelos,
 }
