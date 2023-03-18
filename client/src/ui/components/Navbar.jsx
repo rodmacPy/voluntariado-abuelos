@@ -27,7 +27,7 @@ export const Navbar = () => {
                     <Link
                         to="/"
                     >
-                        <h2 class="animate__animated animate__fadeInLeft">Abuelos en Comunidad</h2>
+                        <h2 className="animate__animated animate__fadeInLeft">Abuelos en Comunidad</h2>
                     </Link>
                 </div>
                 <ul className="links class animate__animated animate__fadeInLeft">
@@ -81,7 +81,7 @@ export const Navbar = () => {
                             className='action_btn'
                             to="/profile"
                         >
-                            <h4 class="animate__animated animate__fadeInLeft">Perfil</h4>
+                            <h4 className="animate__animated animate__fadeInLeft">Perfil</h4>
                         </Link>
                     </li>}
 
