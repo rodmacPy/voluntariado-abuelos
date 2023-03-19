@@ -1,0 +1,108 @@
+.container-sobre section{
+    margin:0px;
+    height: calc(90vh - 60px);
+}
+.sobre_nosotros{
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    margin: 4em 0px;
+}
+.sobre_nosotros:first-of-type{
+    margin-top: 3em;
+}
+.sobre_nosotros .img{
+    width: 35%;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    background-image: url('../assets/ImgSobreNosotros.jpg');
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+.sobre_nosotros .sobre_info{
+    width: 40%;
+    height: 400px;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+.sobre_nosotros .text-title{
+    font-weight: 700;
+    font-size: 3.75rem;
+    margin: 1.5em auto 0px auto;
+    color: #008080;
+    /* font-style: Serif; */
+}
+
+.container-sobre h2:hover{
+    color: #0f3a3a;
+    text-shadow: 0 0 5px #fff,
+                0 0 25px #fff,
+                0 0 50px #fff,
+                0 0 100px #fff;
+    cursor: pointer;
+}
+
+.container-sobre .conteiner-history{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    height: auto;
+    margin: 0px;
+
+}
+.container-sobre .history-img{
+    width: 35%;
+    height: auto;
+}
+ .section-history{
+    max-width: 467px;
+ }
+
+
+.text-history{
+    width: fit-content;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 3.75rem;
+    color: #008080;
+    margin: auto;
+    font-family: Roboto,sans-serif;
+}
+.p-sobre{
+    font-size: 1.40rem;
+    font-weight: 300;
+    margin: 19px 0 0;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    color: #111111;
+    --effect-scale: 1.1;
+}
+.history{
+    margin: 3em 0px;
+}
+.container-sobre .history-img .img{
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+.container-sobre .history-img .img-1{
+    background-image: url('../assets//imgSobreNosotros2.jpg');  
+}
+.container-sobre .history-img .img-2{
+    background-image: url('../assets//imgSobreNosotros3.jpg');  
+}
+.container-sobre .history-img .img-3{
+    background-image: url('../assets//imgSobreNosotros4.jpg');  
+}
+
