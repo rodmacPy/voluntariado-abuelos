@@ -18,14 +18,15 @@ const obtenerAbuelos = async (req, res) => {
         Productos: abuelos
     });
 }
-const obtenerProducto = async(req, res = response ) => {
+
+
+const obtenerAbuelo = async(req, res = response ) => {
 
     const { id } = req.params;
-    const producto = await Abuelo.findById( id )
-                            .populate('usuario', 'nombre')
-                            .populate('categoria', 'nombre');
+    const abuelo = await Abuelo.findById( id )
+                            .populate('usuario', 'nombre');
 
-    res.json( producto );
+    res.json( abuelo );
 
 }
 
@@ -93,6 +94,6 @@ module.exports = {
     actualizarAbuelo,
     borrarAbuelo,
     crearAbuelo,
-    obtenerProducto,
+    obtenerAbuelo,
     obtenerAbuelos,
 }
