@@ -1,15 +1,18 @@
 .container-sobre section{
     margin:0px;
-    height: calc(90vh - 60px);
+    height: calc(100vh - 60px);
 }
 .sobre_nosotros{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-    height: auto;
+    align-content: space-around;
+    /* height: auto; */
     margin: 4em 0px;
 }
 .sobre_nosotros:first-of-type{
     margin-top: 3em;
+    
 }
 .sobre_nosotros .img{
     width: 35%;

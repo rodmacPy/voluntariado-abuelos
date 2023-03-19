@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../auth';
 import { getDatosAuth } from '../helpers/getDatosAuth';
 import '../Styles/ProfilePage.css'
@@ -28,34 +28,48 @@ export const ProfilePage = () => {
                     <p>{data?.correo}</p>
                 </div>
                 <div className='profile-links'>
-                    <Link
+                    <h3>Panel de Usuario</h3>
+
+                    <NavLink
                         to="update"
                     >
                         Actualizar Datos
-                    </Link>
-                    <Link
+                    </NavLink>
+                    <NavLink
                         to="updateimage"
                     >
                         Actualizar Imagen
-                    </Link>
-                    <Link
-                        to="vender"
-                    >
-                        Vender Producto
-                    </Link>
-                    <Link
-                        to="categoria"
-                    >
-                        Crear Categoria
-                    </Link>
+                    </NavLink>
+
                     <button className='button-link' onClick={onLogout}>
                         Cerrar Sesion
                     </button>
                 </div>
+
+                <div className='profile-links'>
+                    <h3>Panel de Administrador</h3>
+                    <NavLink
+                        to="actividades"
+                    >
+                        Actividades
+                    </NavLink>
+                    <NavLink
+                        to="usuarios"
+                    >
+                        Asuarios
+                    </NavLink>
+                    <NavLink
+                        to="roles"
+                    >
+                        Roles
+                    </NavLink>
+                </div>
             </div>
 
 
-            <Outlet />
+            <div className='containerOutlet'>
+                <Outlet />
+            </div>
 
 
 

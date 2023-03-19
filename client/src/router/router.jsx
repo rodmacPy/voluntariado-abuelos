@@ -4,16 +4,20 @@ import { LayoutPage } from '../layout/LayoutPage'
 import { LoginPage } from '../auth/'
 import {
     About,
+    ActividadesLista,
     Activities,
     Contact,
     CreateCategoria,
     CreateProduct,
     LandingPage,
     ProfilePage,
+    RolesLista,
     UpdateProfile,
     UploadImage,
+    UsuariosLista,
     Volunteers
 } from '../abuelos'
+
 import { PrivateRouter, PublicRouter } from './'
 
 
@@ -72,6 +76,18 @@ export const router = createBrowserRouter([
                     {
                         path: 'categoria',
                         element: <CreateCategoria />
+                    },
+                    {
+                        path: 'actividades',
+                        element: <ActividadesLista />
+                    },
+                    {
+                        path: 'usuarios',
+                        element: <UsuariosLista />
+                    },
+                    {
+                        path: 'roles',
+                        element: <RolesLista />
                     }
                 ]
             },

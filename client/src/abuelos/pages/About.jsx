@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Styles/About.css';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
-import 'animate.css';
+
 
 export const About = () => {
     return (

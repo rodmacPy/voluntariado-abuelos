@@ -1,22 +1,19 @@
 .profile-container {
     display: flex;
-    /* background-color: antiquewhite; */
-    height: 700px;
-    overflow: hidden;
-    justify-content: center;
-    align-items: center;
+    height: calc(100vh - 60px);
+    z-index: 10;
+    padding: 20px;
 }
 
 .profile-navbar {
     display: flex;
     flex-direction: column;
-    margin: 0 20px 0 20px;
+    margin: 0 20px 0 0;
     gap: 20px;
-    
 }
 
 .profile-card {
-    background: linear-gradient(#328a6e 35%, white 35%);
+    background: linear-gradient(#008080 35%, white 35%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +23,7 @@
     gap: 15px;
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgb(100, 97, 97);
-    /* margin-bottom: 20px; */
+    padding: 20px;
 }
 
 .profile-card .img {
@@ -46,14 +43,15 @@
     object-fit: cover;
 }
 .button-link{
-    background-color: #328a6e;
+    background-color: #008080;
     border: 0;
     width: 100%;
     font-size: 1em;
 }
 .profile-links {
+    padding: 20px;
     border-radius: 10px;
-    background-color: #328a6e;
+    background-color: #008080;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,4 +72,11 @@
     background-color: #2ca780;
     width: 100%;
     /* opacity: 0.8; */
+}
+
+.containerOutlet{
+    /* margin: 100px; */
+    width: 100%;
+    height: 100%;
+    background-color: aliceblue;
 }
