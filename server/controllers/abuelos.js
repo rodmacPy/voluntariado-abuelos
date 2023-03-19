@@ -15,7 +15,7 @@ const obtenerAbuelos = async (req, res) => {
     res.json({
         total,
         msg: 'get API - controlador - Productos',
-        Productos: abuelos
+        abuelos
     });
 }
 
@@ -77,18 +77,10 @@ const actualizarAbuelo = async (req, res) => {
 
 const borrarAbuelo = async (req, res) => {
     const { id } = req.params;
+    const abueloBorrado = await Abuelo.findByIdAndUpdate(id, { estado: false }, { new: true });
 
-    res.json(id);
+    res.json(abueloBorrado)
 }
-
-
-// const borrarAbuelo = async (req, res) => {
-//     const { id } = req.params;
-//     console.log(id)
-//     // const abueloBorrado = await Abuelo.findByIdAndUpdate(id, { estado: false }, { new: true });
-
-//     // res.json(abueloBorrado)
-// }
 
 module.exports = {
     actualizarAbuelo,

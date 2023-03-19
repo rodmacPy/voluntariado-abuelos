@@ -12,6 +12,7 @@ const obtenerActividades = async (req, res) => {
             Actividad.find(query)
                 .populate('usuario', 'nombre')
                 .populate('usuarios', 'nombre')
+                .populate('abuelos', 'nombre')
                 .skip(Number(desde))
                 .limit(Number(limite))
         ]);
@@ -35,6 +36,7 @@ const obtenerActividad = async(req, res = response ) => {
     const { id } = req.params;
     const actividad = await Actividad.findById( id )
                             .populate('usuarios', 'nombre')
+                            .populate('abuelos', 'nombre')
                             .populate('usuario', 'nombre');
 
     res.json( actividad );
@@ -46,15 +48,15 @@ const obtenerActividad = async(req, res = response ) => {
 
 const crearActividad = async (req, res) => {
     try {
-        const { nombre, img, descripcion, usuario } = req.body;
+        const { nombre, descripcion, usuario } = req.body;
 
-        // const nombreImg = await subirArchivo(req.files, undefined, 'actividad')
+        const nombreImg = await subirArchivo(req.files, undefined, 'actividad')
 
         // Crear una nueva actividad
         const actividad = new Actividad({
             nombre,
-            // img: nombreImg,
-            img,
+            img: nombreImg,
+            // img,
             descripcion,
             usuario: req.usuario._id,
         });
@@ -133,7 +135,7 @@ const borrarActividad = async (req, res) => {
     const { id } = req.params;
     const actividadBorrada = await Actividad.findByIdAndUpdate(id, { estado: false }, { new: true });
 
-    res.json(productoBorrada)
+    res.json(actividadBorrada)
 }
 
 module.exports = {

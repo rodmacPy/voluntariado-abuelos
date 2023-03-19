@@ -22,6 +22,12 @@ const ActividadSchema = Schema({
             ref: 'Usuario',
         },
     ],
+    abuelos: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Abuelo',
+        },
+    ],
     usuario: {
         type: Schema.Types.ObjectId,
         ref: 'Usuario',

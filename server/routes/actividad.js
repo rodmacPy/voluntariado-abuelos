@@ -5,7 +5,8 @@ const { check } = require('express-validator');
 const { validarCampos } = require('../middlewares/validar-campos');
 
 const { validarJWT, adminRole } = require('../middlewares');
-const { crearActividad, agregarUsuarioActividad, obtenerActividades, obtenerActividad } = require('../controllers/actividad');
+const { crearActividad, agregarUsuarioActividad, obtenerActividades, obtenerActividad, borrarActividad } = require('../controllers/actividad');
+const { existeActividadPorId } = require('../helpers');
 
 
 const router = Router();
@@ -34,6 +35,14 @@ router.put('/:id', [
 
 
 
+// borrar una Abuelo - Admin
+router.delete('/:id', [
+    validarJWT,
+    adminRole,
+    check('id', 'No es un id de Mongo Valido').isMongoId(),
+    check('id').custom(existeActividadPorId),
+    validarCampos
+],borrarActividad);
 
 module.exports = router
 
