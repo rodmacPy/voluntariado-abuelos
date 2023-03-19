@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import { Navbar } from '../../ui';
 import { AuthContext } from '../context';
 import './Login_Register.css';
-import 'animate.css';
+
 export const LoginPage = () => {
     const { login } = useContext(AuthContext)
     const navigate = useNavigate()

@@ -5,7 +5,7 @@ const { check } = require('express-validator');
 const { validarCampos } = require('../middlewares/validar-campos');
 
 const { validarJWT, adminRole } = require('../middlewares');
-const { crearAbuelo, obtenerAbuelos, actualizarAbuelo, borrarAbuelo } = require('../controllers/abuelos');
+const { crearAbuelo, obtenerAbuelos, actualizarAbuelo, borrarAbuelo, obtenerAbuelo } = require('../controllers/abuelos');
 const { existeAbueloPorId, esRoleValido } = require('../helpers');
 
 
@@ -13,6 +13,8 @@ const router = Router();
 // Obtener todas las Productos - publico
 router.get('/', obtenerAbuelos);
 
+// Obtener todas las Productos - publico
+router.get('/:id', obtenerAbuelo);
 
 router.post('/', [
     validarJWT,
