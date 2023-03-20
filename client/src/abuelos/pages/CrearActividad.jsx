@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useForm } from '../../hooks/useForm';
 
 const CrearActividad = () => {
     const { descripcion, img, nombre, onInputChange, onResetForm, setFormState } = useForm({
@@ -19,7 +20,7 @@ const CrearActividad = () => {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'x-token': `${localStorage.getItem('token')}`
                 }
             });
             const data = await response.json();

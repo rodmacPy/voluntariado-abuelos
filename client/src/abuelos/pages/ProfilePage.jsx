@@ -61,7 +61,7 @@ export const ProfilePage = () => {
                     <NavLink
                         to="usuarios"
                     >
-                        Asuarios
+                        Usuarios
                     </NavLink>
                     <NavLink
                         to="roles"

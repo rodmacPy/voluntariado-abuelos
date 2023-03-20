@@ -8,8 +8,8 @@ import {
     ActividadesLista,
     Activities,
     Contact,
-    CreateCategoria,
-    CreateProduct,
+    CrearAbuelo,
+    CrearRol,
     LandingPage,
     ProfilePage,
     RolesLista,
@@ -20,6 +20,7 @@ import {
 } from '../abuelos'
 
 import { PrivateRouter, PublicRouter } from './'
+import CrearActividad from '../abuelos/pages/CrearActividad'
 
 
 
@@ -65,6 +66,18 @@ export const router = createBrowserRouter([
                     {
                         path: 'update',
                         element: <UpdateProfile />
+                    },
+                    {
+                        path: 'crearabuelo',
+                        element: <CrearAbuelo />
+                    },
+                    {
+                        path: 'crearactividad',
+                        element: <CrearActividad />
+                    },
+                    {
+                        path: 'crearrol',
+                        element: <CrearRol />
                     },
                     {
                         path: 'updateimage',
