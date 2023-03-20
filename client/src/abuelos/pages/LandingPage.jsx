@@ -9,9 +9,9 @@ export const LandingPage = () => {
         <>
             <section id='hero' className='animate__animated animate__fadeInLeft'>
                 <div className='hero-div'>
-                        <h1 class="animate__animated animate__fadeInLeft">Bienvenidos</h1>
+                        <h1 className="animate__animated animate__fadeInLeft">Bienvenidos</h1>
                     
-                    <p class="animate__animated animate__fadeInLeft">
+                    <p className="animate__animated animate__fadeInLeft">
                         <Typical
                         loop={Infinity}
                         wrapper='b'
