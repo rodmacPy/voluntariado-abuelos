@@ -6,13 +6,16 @@ const { usuariosGet,
     usuariosPut,
     usuariosPost,
     usuariosDelete,
-    usuariosPatch } = require('../controllers/usuarios');
+    usuariosPatch, 
+    obtenerProducto} = require('../controllers/usuarios');
 const { esRoleValido, existeUsuarioPorId } = require('../helpers/db-validators');
 const { emailExiste, validarJWT, adminRole, validarCampos, tieneRole } = require('../middlewares');
 
 const router = Router();
 
 router.get('/', usuariosGet);
+
+router.get('/:id', obtenerProducto);
 
 router.put('/:id', [
     check('id', 'No es un ID valido').isMongoId(),

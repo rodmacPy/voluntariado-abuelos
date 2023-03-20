@@ -27,10 +27,10 @@ export const Navbar = () => {
                     <Link
                         to="/"
                     >
-                        <h2 className="animate__animated animate__fadeInLeft">Abuelos en Comunidad</h2>
+                        <h2 className="animate__animated animate__backInLeft">Abuelos en Comunidad</h2>
                     </Link>
                 </div>
-                <ul className="links class animate__animated animate__fadeInLeft">
+                <ul className="links class animate__animated animate__backInLeft">
                     <li>
                         <NavLink
                             to="/"
@@ -71,7 +71,7 @@ export const Navbar = () => {
 
                 {(!logged) ?
                     <Link
-                        className='action_btn'
+                        className='action_btn animate__animated animate__backInLeft'
                         to="/login"
                     >
                         LOGIN
@@ -81,7 +81,7 @@ export const Navbar = () => {
                             className='action_btn'
                             to="/profile"
                         >
-                            <h4 className="animate__animated animate__fadeInLeft">Perfil</h4>
+                            <span className="animate__animated animate__backInLeft">Perfil</span>
                         </Link>
                     </li>}
 
