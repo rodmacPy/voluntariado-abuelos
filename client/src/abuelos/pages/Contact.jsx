@@ -13,7 +13,7 @@ export const Contact = () => {
                 <div className='contact-title animate__animated animate__fadeInUp'>
                     <h1>¿Cómo te podemos ayudar?</h1>
                 </div>
-                <ContactComponent/>8
+                <ContactComponent/>
                 <div className='icon-contact'>
                 <Link><i className="fa-brands fa-facebook fa-3x  animate__animated animate__fadeInDownBig "  ></i></Link>
                 <Link><i className="fa-brands fa-twitter fa-3x  animate__animated animate__fadeInUpBig "  ></i></Link>
