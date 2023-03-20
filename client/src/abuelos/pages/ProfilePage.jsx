@@ -15,8 +15,7 @@ export const ProfilePage = () => {
             replace: true
         });
     }
-
-
+ 
     return (
         <div className='profile-container'>
             <div className='profile-navbar'>
