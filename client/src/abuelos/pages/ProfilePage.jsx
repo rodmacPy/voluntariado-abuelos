@@ -54,6 +54,11 @@ export const ProfilePage = () => {
                         Actividades
                     </NavLink>
                     <NavLink
+                        to="abuelos"
+                    >
+                        Abuelos
+                    </NavLink>
+                    <NavLink
                         to="usuarios"
                     >
                         Asuarios

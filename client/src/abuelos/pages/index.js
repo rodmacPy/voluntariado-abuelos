@@ -1,4 +1,5 @@
 export * from './About'
+export * from './AbuelosLista'
 export * from './ActividadesLista'
 export * from './Activities'
 export * from './Contact'

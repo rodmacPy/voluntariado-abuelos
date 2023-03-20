@@ -4,6 +4,7 @@ import { LayoutPage } from '../layout/LayoutPage'
 import { LoginPage } from '../auth/'
 import {
     About,
+    AbuelosLista,
     ActividadesLista,
     Activities,
     Contact,
@@ -70,16 +71,12 @@ export const router = createBrowserRouter([
                         element: <UploadImage />
                     },
                     {
-                        path: 'vender',
-                        element: <CreateProduct />
-                    },
-                    {
-                        path: 'categoria',
-                        element: <CreateCategoria />
-                    },
-                    {
                         path: 'actividades',
                         element: <ActividadesLista />
+                    },
+                    {
+                        path: 'abuelos',
+                        element: <AbuelosLista />
                     },
                     {
                         path: 'usuarios',
