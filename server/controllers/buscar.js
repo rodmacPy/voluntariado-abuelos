@@ -5,8 +5,8 @@ const { Usuario, Categoria, Producto } = require('../models');
 
 const coleccionesPermitidas = [
     'usuarios',
-    'categorias',
-    'productos',
+    'actividad',
+    'abuelos',
     'roles'
 ];
 
@@ -33,7 +33,7 @@ const buscarUsuarios = async (termino = '', res = response) => {
 
 }
 
-const buscarCategorias = async (termino = '', res = response) => {
+const buscarAbuelo = async (termino = '', res = response) => {
     const esMongoID = ObjectId.isValid(termino); // TRUE 
 
     if (esMongoID) {
@@ -89,10 +89,10 @@ const buscar = (req, res = response) => {
         case 'usuarios':
             buscarUsuarios(termino, res);
             break;
-        case 'categorias':
-            buscarCategorias(termino, res);
+        case 'abuelos':
+            buscarAbuelo(termino, res);
             break;
-        case 'productos':
+        case 'actividad':
             buscarProductos(termino, res);
             break;
 

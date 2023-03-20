@@ -7,15 +7,16 @@ const dbConnection = require('../database/config');
 class Server {
 
     constructor() {
-        this.app  = express();
+        this.app = express();
         this.port = process.env.PORT;
         this.paths = {
             auth: '/api/auth',
             abuelos: '/api/abuelos',
-            categorias: '/api/categorias',
+            actividad: '/api/actividad',
             buscar: '/api/buscar',
             usuarios: '/api/usuarios',
             uploads: '/api/uploads',
+            role: '/api/role',
         }
 
         // Conectar a base de datos
@@ -27,22 +28,22 @@ class Server {
         this.routes();
     }
 
-    async conectarDB(){
+    async conectarDB() {
         await dbConnection();
     }
     middlewares() {
 
         // CORS
-        this.app.use( cors() );
+        this.app.use(cors());
 
         // Lectura y parseo del body
-        this.app.use( express.json() );
+        this.app.use(express.json());
 
         //Fileupload - Carga de archivos
         this.app.use(fileUpload({
-            useTempFiles : true,
-            tempFileDir : '/tmp/',
-            createParentPath : true
+            useTempFiles: true,
+            tempFileDir: '/tmp/',
+            createParentPath: true
         }));
 
         // Directorio Público
@@ -51,17 +52,17 @@ class Server {
     }
 
     routes() {
-        this.app.use( this.paths.abuelos,          require('../routes/abuelos'));
-        this.app.use( this.paths.uploads,          require('../routes/uploads'));
-        this.app.use( this.paths.categorias,          require('../routes/categorias'));
-        this.app.use( this.paths.auth,          require('../routes/auth'));
-        this.app.use( this.paths.usuarios,      require('../routes/usuarios'));
-        this.app.use( this.paths.uploads,      require('../routes/uploads'));
+        this.app.use(this.paths.abuelos, require('../routes/abuelos'));
+        this.app.use(this.paths.actividad, require('../routes/actividad'));
+        this.app.use(this.paths.auth, require('../routes/auth'));
+        this.app.use(this.paths.usuarios, require('../routes/usuarios'));
+        this.app.use(this.paths.uploads, require('../routes/uploads'));
+        this.app.use(this.paths.role, require('../routes/role'));
     }
 
     listen() {
-        this.app.listen( this.port, () => {
-            console.log('Servidor corriendo en puerto', this.port );
+        this.app.listen(this.port, () => {
+            console.log('Servidor corriendo en puerto', this.port);
         });
     }
 

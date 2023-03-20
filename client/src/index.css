@@ -34,6 +34,7 @@ header {
     position: relative;
     padding: 0 2rem;
     background-color: #008080;
+    /* margin-bottom: 10px; */
 }
 
 .navbar {
