@@ -1,0 +1,26 @@
+
+.contact img {
+max-width: 30%;
+height: 50%;
+margin-left: auto;
+margin-right: auto;
+}
+.contact{
+    display: flex;
+}
+.contact-title {
+color: #008080;
+text-align: center;
+padding: 8px;
+margin: 2px;
+}
+
+.icon-contact{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.icon-contact i {
+    margin: 5px;
+    padding: 5px;
+}
