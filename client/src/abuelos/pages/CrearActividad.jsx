@@ -1,11 +1,14 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 
 const CrearActividad = () => {
-    const { descripcion, img, nombre, onInputChange, onResetForm, setFormState } = useForm({
-        nombre: '', 
-        img: '', 
-        descripcion: '' 
+    const { token } = JSON.parse(localStorage.getItem('user'));
+    const [file, setFile] = useState(null)
+    const { descripcion, archivo, nombre, onInputChange, onResetForm, setFormState, handleFileChange } = useForm({
+        nombre: '',
+        archivo: '',
+        descripcion: ''
     })
 
     const handleSubmit = async (e) => {
@@ -13,18 +16,17 @@ const CrearActividad = () => {
         const formData = new FormData();
         formData.append('nombre', nombre);
         formData.append('descripcion', descripcion);
-        formData.append('img', img);
-
+        formData.append('archivo', file);
+        // console.log(archivo)
         try {
-            const response = await fetch('http://localhost:8080/api/actividad', {
-                method: 'POST',
-                body: formData,
+
+
+            axios.post('http://localhost:8080/api/actividad/', formData, {
                 headers: {
-                    'x-token': `${localStorage.getItem('token')}`
+                    'Content-Type': 'multipart/form-data',
+                    'x-token': `${token}`
                 }
-            });
-            const data = await response.json();
-            console.log(data);
+            })
         } catch (error) {
             console.error(error);
         }
@@ -38,7 +40,7 @@ const CrearActividad = () => {
             </div>
             <div>
                 <label htmlFor="img">Imagen:</label>
-                <input type="file" id="img" name="img" onChange={(e) => setFormState({ ...actividad, img: e.target.files[0] })} />
+                <input type="file" id="archivo" name="archivo" onChange={(e) => setFile(e.target.files[0])} />
             </div>
             <div>
                 <label htmlFor="descripcion">Descripción:</label>

@@ -11,7 +11,7 @@ export const ProfilePage = () => {
     const { data } = getDatosAuth()
     const onLogout = () => {
         logout()
-        navigation('/login', {
+        Navigation('/login', {
             replace: true
         });
     }

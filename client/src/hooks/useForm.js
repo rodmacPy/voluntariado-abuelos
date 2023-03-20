@@ -13,8 +13,9 @@ export const useForm = (initialForm = {}) => {
     }
 
     const handleFileChange = (e) => {
+        console.log(e.name)
         setFormState({ ...formState, 
-            img: e.target.files[0] 
+            [e.name]: e.target.files[0]
         });
     };
 
@@ -28,5 +29,6 @@ export const useForm = (initialForm = {}) => {
         formState,
         onInputChange,
         onResetForm,
+        handleFileChange
     }
 }

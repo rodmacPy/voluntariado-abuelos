@@ -31,15 +31,15 @@ const obtenerActividades = async (req, res) => {
     }
 };
 
-const obtenerActividad = async(req, res = response ) => {
+const obtenerActividad = async (req, res = response) => {
 
     const { id } = req.params;
-    const actividad = await Actividad.findById( id )
-                            .populate('usuarios', 'nombre')
-                            .populate('abuelos', 'nombre')
-                            .populate('usuario', 'nombre');
+    const actividad = await Actividad.findById(id)
+        .populate('usuarios', 'nombre')
+        .populate('abuelos', 'nombre')
+        .populate('usuario', 'nombre');
 
-    res.json( actividad );
+    res.json(actividad);
 
 }
 
@@ -48,15 +48,16 @@ const obtenerActividad = async(req, res = response ) => {
 
 const crearActividad = async (req, res) => {
     try {
-        const { nombre, descripcion, usuario } = req.body;
+        const { nombre, descripcion } = req.body;
+        const { archivo } = req.files;
 
-        const nombreImg = await subirArchivo(req.files, undefined, 'actividad')
+        // Llamar a la función subirArchivo para guardar la imagen
+        const nombreImg = await subirArchivo(archivo, ['png', 'jpg', 'jpeg', 'gif'], 'actividad');
 
         // Crear una nueva actividad
         const actividad = new Actividad({
             nombre,
             img: nombreImg,
-            // img,
             descripcion,
             usuario: req.usuario._id,
         });

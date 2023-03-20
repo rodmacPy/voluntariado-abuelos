@@ -4,7 +4,7 @@ const { check } = require('express-validator');
 
 const { validarCampos } = require('../middlewares/validar-campos');
 
-const { validarJWT, adminRole } = require('../middlewares');
+const { validarJWT, adminRole, validarArchivoSubir } = require('../middlewares');
 const { crearActividad, agregarUsuarioActividad, obtenerActividades, obtenerActividad, borrarActividad } = require('../controllers/actividad');
 const { existeActividadPorId } = require('../helpers');
 
@@ -23,6 +23,7 @@ router.get('/:id', [
 //Crear la Actividad - Privado = Requiere Token
 router.post('/', [
     validarJWT,
+    validarArchivoSubir,
     check('nombre', 'El nombre es obligatoria').notEmpty(),
     validarCampos,
 ], crearActividad);
