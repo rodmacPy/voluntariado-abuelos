@@ -1,0 +1,88 @@
+.detalles{
+    display: grid;
+    min-width: 500px;
+    min-height: 80vh;
+    align-items: start;
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.1);
+}
+
+.detalles table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+/* .detalles table tbody{
+    height: 100vh;
+} */
+
+.detalles table thead{
+    font-weight: 600;
+    border-bottom: 2px solid rgba(0, 0, 0);
+}
+.detalles table  tr{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    height: 11vh;
+}
+
+.detalles table  tr td:last-child{
+    text-align: end;
+}
+.detalles table tr .td-op{
+    text-align: end;
+}
+
+.detalles table  tr:last-child{
+    border-bottom:none;
+}
+
+.detalles table tbody tr:hover{
+    background: #008080;
+    color: #fff;
+}
+
+.description table tbody tr:hover{
+    background: none;
+    color: #000;
+}
+.description table tbody tr{
+    background: none;
+    color: #000;
+    height: 10vh;
+}
+.titulo:hover{
+    color: #fff;
+}
+.titulo{
+    width: 100%;
+    height: 100%;
+}
+.cardInventario:hover{
+    background: #008080;
+    color: #fff;
+    cursor: pointer;
+}
+.detalles table  tr td{
+    padding: 10px;
+}
+.detalles button{
+    margin: 0px;
+}
+.detalles button:hover{
+    background-color: #fff;
+    color: #000;
+}
+.detalles .delate{
+    background-color: rgb(182, 1, 37);
+}
+.detalles .edit{
+    background-color: rgb(38, 102, 52);
+}
+.detalles .nav-foot{
+    display: flex;
+    justify-content: center;
+}
+.detalles .nav-footN{
+    margin: 0px .7em;
+}
+
