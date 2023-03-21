@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 
 const CrearActividad = () => {
+    const { token } = JSON.parse(localStorage.getItem('user'));
     const { descripcion, img, nombre, onInputChange, onResetForm, setFormState } = useForm({
         nombre: '', 
         img: '', 
@@ -14,13 +15,14 @@ const CrearActividad = () => {
         formData.append('nombre', nombre);
         formData.append('descripcion', descripcion);
         formData.append('img', img);
+        console.log(formData)
 
         try {
             const response = await fetch('http://localhost:8080/api/actividad', {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'x-token': `${localStorage.getItem('token')}`
+                    'x-token': token
                 }
             });
             const data = await response.json();

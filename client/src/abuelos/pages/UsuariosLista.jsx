@@ -7,7 +7,9 @@ import '../Styles/UsuarioLista.css';
 export const UsuariosLista = () => {
     const [usuarios, setUsuarios] = useState([]);
     const [page, setPage] = useState([]);
-    const [option, setOption] = useState(0)
+    const [option, setOption] = useState(0);
+    const { token } = JSON.parse(localStorage.getItem('user'));
+    const [contDetate, setContDetate] = useState(0);
 
    
     
@@ -21,8 +23,20 @@ export const UsuariosLista = () => {
         setPage(useArreglo(Math.ceil((res.data.total/5))))
       }
       GetData();
-    }, [option])
-    
+    }, [option,contDetate])
+    const delate = async(id)=>{
+        try {
+            await axios.delete(`http://localhost:8080/api/usuarios/${id}`,{
+                headers: {
+                    'x-token': `${token}`
+                }
+            })
+            setContDetate((contDetate==0?1:0))
+        } catch (error) {
+            console.log(error)
+        }
+        
+    }
     return (
         <>
             <div className=" detalles">
@@ -43,7 +57,7 @@ export const UsuariosLista = () => {
                                 <tr key={idx}>
                                     <td>{res.nombre}</td>
                                     <td>{res.correo}</td>
-                                    <td className='td-op'><button className='delate'>Eliminar</button></td>
+                                    <td className='td-op'><button onClick={()=>delate(res.uid)} className='delate'>Eliminar</button></td>
                                     <td className='td-op'><button className='edit'>Editar</button></td>
                                     <td className='td-op'><button className='ver'>Ver</button></td>
                                 </tr>

@@ -4,7 +4,6 @@ const useArreglo=(num)=>{
     for (let index = 0; index < num; index++) {
         n.push(index);
     }
-    console.log(n)
     return(n)
 }
 
