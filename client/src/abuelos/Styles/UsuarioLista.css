@@ -1,8 +1,6 @@
 .detalles{
-    display: grid;
     min-width: 500px;
     min-height: 80vh;
-    align-items: start;
     padding: 20px;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.1);
 }
@@ -20,7 +18,7 @@
     font-weight: 600;
     border-bottom: 2px solid rgba(0, 0, 0);
 }
-.detalles table  tr{
+.detalles table  tbody tr{
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     height: 11vh;
 }
@@ -81,6 +79,7 @@
 .detalles .nav-foot{
     display: flex;
     justify-content: center;
+    border-top: 2px solid #000;
 }
 .detalles .nav-footN{
     margin: 0px .7em;

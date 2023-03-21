@@ -1,13 +1,13 @@
 const { response } = require('express');
 const { ObjectId } = require('mongoose').Types;
 
-const { Usuario, Categoria, Producto } = require('../models');
+const { Abuelo, Actividad, Role, Usuario } = require('../models');
 
 const coleccionesPermitidas = [
-    'usuarios',
-    'actividad',
     'abuelos',
-    'roles'
+    'actividad',
+    'usuarios',
+    'role'
 ];
 
 const buscarUsuarios = async (termino = '', res = response) => {
@@ -25,11 +25,11 @@ const buscarUsuarios = async (termino = '', res = response) => {
     const usuarios = await Usuario.find({
         $or: [{ nombre: regex }, { correo: regex }],
         $and: [{ estado: true }]
-    })
+    });
 
     res.json({
         results: usuarios
-    })
+    });
 
 }
 
@@ -37,39 +37,37 @@ const buscarAbuelo = async (termino = '', res = response) => {
     const esMongoID = ObjectId.isValid(termino); // TRUE 
 
     if (esMongoID) {
-        const categoria = await Categoria.findById(termino);
+        const abuelo = await Abuelo.findById(termino);
         return res.json({
-            results: (categoria) ? [categoria] : []
+            results: (abuelo) ? [abuelo] : []
         });
     }
 
     const regex = new RegExp(termino, 'i')
-    const categorias = await Categoria.find({ nombre: regex, estado: true })
+    const abuelos = await Abuelo.find({ nombre: regex, estado: true })
 
     res.json({
-        results: categorias
+        results: abuelos
     })
 
 }
 
-const buscarProductos = async( termino = '', res = response ) => {
+const buscarActividad = async (termino = '', res = response) => {
 
-    const esMongoID = ObjectId.isValid( termino ); // TRUE 
+    const esMongoID = ObjectId.isValid(termino); // TRUE 
 
-    if ( esMongoID ) {
-        const producto = await Producto.findById(termino)
-                            .populate('categoria','nombre');
+    if (esMongoID) {
+        const actividad = await Actividad.findById(termino);
         return res.json({
-            results: ( producto ) ? [ producto ] : []
+            results: (actividad) ? [actividad] : []
         });
     }
 
-    const regex = new RegExp( termino, 'i' );
-    const productos = await Producto.find({ nombre: regex, estado: true })
-                            .populate('categoria','nombre')
+    const regex = new RegExp(termino, 'i');
+    const actividades = await Actividad.find({ nombre: regex, estado: true })
 
     res.json({
-        results: productos
+        results: actividades
     });
 
 }
@@ -93,19 +91,17 @@ const buscar = (req, res = response) => {
             buscarAbuelo(termino, res);
             break;
         case 'actividad':
-            buscarProductos(termino, res);
+            buscarActividad(termino, res);
             break;
 
         default:
             res.status(500).json({
-                msg: 'Se le olvido hacer esta búsquda'
+                msg: 'Se le olvido hacer esta búsqueda'
             })
     }
 
 }
 
-
-
 module.exports = {
     buscar
-}
+};

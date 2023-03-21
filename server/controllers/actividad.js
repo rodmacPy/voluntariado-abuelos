@@ -3,7 +3,7 @@ const { subirArchivo } = require('../helpers');
 const { Actividad } = require('../models')
 
 const obtenerActividades = async (req, res) => {
-    const { limite = 10, desde = 0 } = req.query;
+    const { limite = 5, desde = 0 } = req.query;
     const query = { estado: true };
 
     try {

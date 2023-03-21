@@ -4,11 +4,13 @@ import { useForm } from '../../hooks/useForm';
 
 const CrearActividad = () => {
     const { token } = JSON.parse(localStorage.getItem('user'));
+
     const [file, setFile] = useState(null)
-    const { descripcion, archivo, nombre, onInputChange, onResetForm, setFormState, handleFileChange } = useForm({
+    const { descripcion, nombre, onInputChange, onResetForm, setFormState, handleFileChange } = useForm({
         nombre: '',
         archivo: '',
         descripcion: ''
+
     })
 
     const handleSubmit = async (e) => {
@@ -17,10 +19,9 @@ const CrearActividad = () => {
         formData.append('nombre', nombre);
         formData.append('descripcion', descripcion);
         formData.append('archivo', file);
-        // console.log(archivo)
+
+
         try {
-
-
             axios.post('http://localhost:8080/api/actividad/', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',

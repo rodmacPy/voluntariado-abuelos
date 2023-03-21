@@ -24,7 +24,7 @@ router.get('/:id', [
 router.post('/', [
     validarJWT,
     validarArchivoSubir,
-    check('nombre', 'El nombre es obligatoria').notEmpty(),
+    check('nombre', 'El nombre es obligatorio').notEmpty(),
     validarCampos,
 ], crearActividad);
 
