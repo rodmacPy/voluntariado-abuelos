@@ -1,9 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import '../Styles/UpdateProfile.css'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useParams} from 'react-router-dom'
 
-export const CrearAbuelo = () => {
+export const ActualizarAbuelo = () => {
+    const {id}=useParams()
+    console.log(id)
     const navigate = useNavigate()
     const [data, setData] = useState(null)
     const { token } = JSON.parse(localStorage.getItem('user'));
@@ -14,10 +16,24 @@ export const CrearAbuelo = () => {
         direccion: '',
         ciudad: ''
     });
-
+    useEffect(() => {
+        const GetData = async ()=>{
+          const response = await axios.get(`http://localhost:8080/api/abuelos/${id}`)
+            setFormData({
+                nombre: response.data.nombre || '',
+                fecha_nacimiento : response.data.fecha_nacimiento || '',
+                genero : response.data.genero || '',
+                direccion: response.data.direccion || '',
+                ciudad: response.data.ciudad || '',
+            })
+            
+        }
+        GetData();
+      }, [])
+   
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`http://localhost:8080/api/abuelos`, formData,{
+        axios.put(`http://localhost:8080/api/abuelos/${id}`, formData,{
             headers: {
                 'x-token': `${token}`
             }
@@ -30,7 +46,6 @@ export const CrearAbuelo = () => {
                 console.log(error)
             });
     }
-
     const handleInputChange = (e) => {
         setFormData({
             ...formData,

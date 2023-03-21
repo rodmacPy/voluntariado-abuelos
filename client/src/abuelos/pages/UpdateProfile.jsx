@@ -44,7 +44,7 @@ export const UpdateProfile = () => {
             .then(response => {
                 setData(response.data.usuario)
                 alert('Datos actualizados');
-                window.location.reload(true);
+                
             })
             .catch(error => {
                 console.log(error)

@@ -7,6 +7,7 @@ import {
     AbuelosLista,
     ActividadesLista,
     Activities,
+    ActualizarAbuelo,
     Contact,
     CrearAbuelo,
     CrearRol,
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
                     {
                         path: 'crearabuelo',
                         element: <CrearAbuelo />
+                    },
+                    {
+                        path: 'actulizarabuelo/:id',
+                        element: <ActualizarAbuelo />
                     },
                     {
                         path: 'crearactividad',
