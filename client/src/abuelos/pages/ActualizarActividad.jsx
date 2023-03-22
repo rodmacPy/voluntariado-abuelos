@@ -49,7 +49,7 @@ export const ActualizarActividad = () => {
     return (
         <div className='containerF'>
         <div className='update-profile'>
-            <h2>Crear Actividades</h2>
+            <h2>Actualizar Actividades</h2>
         <form onSubmit={handleSubmit}>
             <div className='form-group'>
                 <label htmlFor="nombre">Nombre:</label>

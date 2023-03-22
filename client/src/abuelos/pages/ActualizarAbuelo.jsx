@@ -17,6 +17,7 @@ export const ActualizarAbuelo = () => {
     useEffect(() => {
         const GetData = async ()=>{
           const response = await axios.get(`http://localhost:8080/api/abuelos/${id}`)
+          console.log(response)
             setFormData({
                 nombre: response.data.nombre || '',
                 fecha_nacimiento : response.data.fecha_nacimiento || '',
@@ -52,7 +53,7 @@ export const ActualizarAbuelo = () => {
     return (
         <div className='containerF'>
         <div className='update-profile'>
-            <h2>Crear Abuela</h2>
+            <h2>Actulizar datos de abuelo</h2>
             <form onSubmit={handleSubmit}>
                     <div className='form-group'>
                         <label htmlFor='nombre'>Nombre:</label>
@@ -64,7 +65,11 @@ export const ActualizarAbuelo = () => {
                 </div>
                 <div className='form-group'>
                     <label htmlFor='genero'>Genero:</label>
-                    <input type='text' name='genero' value={formData.genero} onChange={handleInputChange} />
+                    <select htmlFor='genero' name='genero' value={formData.genero}  onChange={handleInputChange}>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                    </select>
+                   
                 </div>
                 <div className='form-group'>
                     <label htmlFor='direccion'>Direccion:</label>
@@ -74,7 +79,7 @@ export const ActualizarAbuelo = () => {
                     <label htmlFor='ciudad'>Ciudad:</label>
                     <input type='text' name='ciudad' value={formData.ciudad} onChange={handleInputChange} />
                 </div>
-                <button type='submit'>Crear</button>
+                <button type='submit'>Actulizar</button>
             </form>
         </div>
     </div>

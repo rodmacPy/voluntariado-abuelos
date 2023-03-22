@@ -5,26 +5,24 @@ import {useNavigate, useParams} from 'react-router-dom'
 
 export const ActualizarUsuario= () => {
     const {id}=useParams()
-    console.log(id)
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
         nombre: '',
         apellido: '',
         correo: '',
-        password: '',
         ciudad: '',
         direccion: ''
     });
     useEffect(() => {
         const GetData = async ()=>{
           const response = await axios.get(`http://localhost:8080/api/usuarios/${id}`)
+          console.log(response)
             setFormData({
-                nombre: response.usuario.nombre || '',
-                apellido: response.usuario.apellido || '',
-                correo: response.usuario.correo || '',
-                password: response.usuario.password || '',
-                ciudad: response.usuario.ciudad || '',
-                direccion: response.usuario.direccion || '',
+                nombre: response.data.nombre || '',
+                apellido: response.data.apellido || '',
+                correo: response.data.correo || '',
+                ciudad: response.data.ciudad || '',
+                direccion: response.data.direccion || '',
             })
             
         }
@@ -64,10 +62,6 @@ export const ActualizarUsuario= () => {
                 <div className='form-group'>
                     <label htmlFor='correo'>Correo electrónico:</label>
                     <input type='email' name='correo' value={formData.correo} onChange={handleInputChange} />
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='password'>Contraseña:</label>
-                    <input type='password' name='password' value={formData.password} onChange={handleInputChange} />
                 </div>
                 <div className='form-group'>
                     <label htmlFor='ciudad'>Ciudad:</label>
