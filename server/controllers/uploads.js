@@ -2,7 +2,8 @@ const path = require('path')
 const fs = require('fs')
 const { subirArchivo } = require("../helpers");
 
-const { Usuario, Actividad, Abuelo } = require('../models')
+const { Usuario, Actividad, Abuelo } = require('../models');
+const abuelos = require('../models/abuelos');
 
 const cargarArchivo = async (req, res) => {
 
@@ -88,11 +89,20 @@ const mostrarImagen = async (req, res) => {
 
             break;
 
-        case 'productos':
-            modelo = await Producto.findById(id);
+        case 'abuelos':
+            modelo = await abuelos.findById(id);
             if (!modelo) {
                 return res.status(400).json({
-                    msg: `No existe un producto con el id ${id}`
+                    msg: `No existe un abuelo con el id ${id}`
+                });
+            }
+
+            break;
+        case 'actividad':
+            modelo = await Actividad.findById(id);
+            if (!modelo) {
+                return res.status(400).json({
+                    msg: `No existe una actividad con el id ${id}`
                 });
             }
 

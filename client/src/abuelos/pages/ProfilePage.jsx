@@ -1,17 +1,17 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../auth';
 import { getDatosAuth } from '../helpers/getDatosAuth';
 import '../Styles/ProfilePage.css'
 
 export const ProfilePage = () => {
-
+    const navigate = useNavigate()
     const { logout, logged } = useContext(AuthContext)
     const { data } = getDatosAuth()
     const onLogout = () => {
         logout()
-        Navigation('/login', {
+        navigate('/login', {
             replace: true
         });
     }
