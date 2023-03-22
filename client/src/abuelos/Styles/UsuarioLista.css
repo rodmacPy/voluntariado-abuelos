@@ -85,3 +85,31 @@
     margin: 0px .7em;
 }
 
+.hederAgregar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnAgrega {
+    width: 11vw;
+    padding: .5rem 1rem;
+    background: #247fbb;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 10px 5px 30px rgba(0,0,0,.1);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    transform: scale(1);
+    transition: transform .5s ease-in-out;
+    cursor: pointer;
+    margin-right: 2.3em;
+}
+.btnAgrega:active {
+    transform: scale(.8);
+    transition: transform .7s ease-in-out;
+}
+.tituloPerfil{
+    margin-left: 2em;
+}

@@ -34,21 +34,26 @@ const CrearActividad = () => {
     };
 
     return (
+        <div className='containerF'>
+        <div className='update-profile'>
+            <h2>Crear Actividades</h2>
         <form onSubmit={handleSubmit}>
-            <div>
+            <div className='form-group'>
                 <label htmlFor="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" value={nombre} onChange={onInputChange} />
             </div>
-            <div>
+            <div className='form-group'>
                 <label htmlFor="img">Imagen:</label>
                 <input type="file" id="archivo" name="archivo" onChange={(e) => setFile(e.target.files[0])} />
             </div>
-            <div>
+            <div className='form-group'>
                 <label htmlFor="descripcion">Descripción:</label>
                 <textarea id="descripcion" name="descripcion" value={descripcion} onChange={onInputChange}></textarea>
             </div>
             <button type="submit">Crear actividad</button>
         </form>
+        </div>
+        </div>
     );
 };
 

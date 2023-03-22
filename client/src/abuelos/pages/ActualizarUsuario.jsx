@@ -1,63 +1,49 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import '../Styles/UpdateProfile.css'
-export const UpdateProfile = () => {
-    const [data, setData] = useState(null)
-    const { token } = JSON.parse(localStorage.getItem('user'));
+import {useNavigate, useParams} from 'react-router-dom'
+
+export const ActualizarUsuario= () => {
+    const {id}=useParams()
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         nombre: '',
         apellido: '',
         correo: '',
-        password: '',
         ciudad: '',
         direccion: ''
     });
-    const validarToken = () => {
-        axios.get('http://localhost:8080/api/auth/', {
-            headers: {
-                'x-token': `${token}`
-            }
-        })
-            .then(response => {
-                setData(response.data.usuario.uid)
-                setFormData({
-                    nombre: response.data.usuario.nombre || '',
-                    apellido: response.data.usuario.apellido || '',
-                    correo: response.data.usuario.correo || '',
-                    password: response.data.usuario.password || '',
-                    ciudad: response.data.usuario.ciudad || '',
-                    direccion: response.data.usuario.direccion || '',
-                })
-                
-            })
-            .catch(error => {
-                console.log(error)
-            });
-    }
     useEffect(() => {
-        validarToken()
-    }, [])
-
+        const GetData = async ()=>{
+          const response = await axios.get(`http://localhost:8080/api/usuarios/${id}`)
+            setFormData({
+                nombre: response.data.nombre || '',
+                apellido: response.data.apellido || '',
+                correo: response.data.correo || '',
+                ciudad: response.data.ciudad || '',
+                direccion: response.data.direccion || '',
+            })
+            
+        }
+        GetData();
+      }, [])
+   
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:8080/api/usuarios/${data}`, formData)
+        axios.put(`http://localhost:8080/api/usuarios/${id}`, formData)
             .then(response => {
-                setData(response.data.usuario)
-                alert('Datos actualizados');
-                
+                navigate('/profile/usuarios')
             })
             .catch(error => {
                 console.log(error)
             });
     }
-
     const handleInputChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
         });
     }
-
     return (
         <div className='update-profile'>
             <h2>Actualizar perfil</h2>
@@ -77,10 +63,6 @@ export const UpdateProfile = () => {
                     <input type='email' name='correo' value={formData.correo} onChange={handleInputChange} />
                 </div>
                 <div className='form-group'>
-                    <label htmlFor='password'>Contraseña:</label>
-                    <input type='password' name='password' value={formData.password} onChange={handleInputChange} />
-                </div>
-                <div className='form-group'>
                     <label htmlFor='ciudad'>Ciudad:</label>
                     <input type='text' name='ciudad' value={formData.ciudad} onChange={handleInputChange} />
                 </div>
@@ -92,4 +74,4 @@ export const UpdateProfile = () => {
             </form>
         </div>
     );
-};
+}

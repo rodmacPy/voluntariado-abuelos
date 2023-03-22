@@ -5,7 +5,7 @@ const { check } = require('express-validator');
 const { validarCampos } = require('../middlewares/validar-campos');
 
 const { validarJWT, adminRole, validarArchivoSubir } = require('../middlewares');
-const { crearActividad, agregarUsuarioActividad, obtenerActividades, obtenerActividad, borrarActividad } = require('../controllers/actividad');
+const { crearActividad, agregarUsuarioActividad, obtenerActividades, obtenerActividad, borrarActividad, actualizarActividad } = require('../controllers/actividad');
 const { existeActividadPorId } = require('../helpers');
 
 
@@ -28,11 +28,17 @@ router.post('/', [
     validarCampos,
 ], crearActividad);
 
-router.put('/:id', [
+router.put('/unirse/:id', [
     validarJWT,
     check('id', 'No es un id de Mongo').isMongoId(),
     validarCampos,
 ], agregarUsuarioActividad);
+
+router.put('/:id', [
+    validarJWT,
+    check('id', 'No es un id de Mongo').isMongoId(),
+    validarCampos,
+], actualizarActividad);
 
 
 
