@@ -5,9 +5,7 @@ import {useNavigate, useParams} from 'react-router-dom'
 
 export const ActualizarAbuelo = () => {
     const {id}=useParams()
-    console.log(id)
     const navigate = useNavigate()
-    const [data, setData] = useState(null)
     const { token } = JSON.parse(localStorage.getItem('user'));
     const [formData, setFormData] = useState({
         nombre: '',
@@ -39,7 +37,6 @@ export const ActualizarAbuelo = () => {
             }
         })
             .then(response => {
-                setData(response.data.usuario)
                 navigate('/profile/abuelos')
             })
             .catch(error => {

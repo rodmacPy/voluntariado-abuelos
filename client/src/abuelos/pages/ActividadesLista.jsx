@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import useArreglo from '../../hooks/useArreglo';
 import '../Styles/UsuarioLista.css';
-import { Link } from 'react-router-dom'
+import {NavLink, Link } from 'react-router-dom'
 
 export const ActividadesLista = () => {
     const [actividades, setActividades] = useState([]);
@@ -60,8 +60,8 @@ export const ActividadesLista = () => {
                                             <tr key={idx}>
                                                 <td>{res.nombre}</td>
                                                 <td>{res.correo}</td>
-                                                <td className='td-op'><button onClick={()=>delate(res.uid)} className='delate'>Eliminar</button></td>
-                                                <td className='td-op'><button className='edit'>Editar</button></td>
+                                                <td className='td-op'><button onClick={()=>delate(res._id)} className='delate'>Eliminar</button></td>
+                                                <td className='td-op'><Link to={`./../actualizaractividad/${res._id}`}><button className='edit'>Editar</button></Link></td>
                                                 <td className='td-op'><button className='ver'>Ver</button></td>
                                             </tr>
                                         )
