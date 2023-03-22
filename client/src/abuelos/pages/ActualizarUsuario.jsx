@@ -16,7 +16,6 @@ export const ActualizarUsuario= () => {
     useEffect(() => {
         const GetData = async ()=>{
           const response = await axios.get(`http://localhost:8080/api/usuarios/${id}`)
-          console.log(response)
             setFormData({
                 nombre: response.data.nombre || '',
                 apellido: response.data.apellido || '',
