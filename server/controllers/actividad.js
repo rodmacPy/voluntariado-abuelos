@@ -51,10 +51,10 @@ const obtenerActividad = async (req, res) => {
 const crearActividad = async (req, res) => {
     try {
         const { nombre, descripcion } = req.body;
-        const { archivo } = req.files;
+        // const { archivo } = req.files;
 
         // Llamar a la función subirArchivo para guardar la imagen
-        const nombreImg = await subirArchivo(archivo, ['png', 'jpg', 'jpeg', 'gif'], 'actividad');
+        const nombreImg = await subirArchivo(req.files, ['png', 'jpg', 'jpeg', 'gif'], 'actividad');
 
         // Crear una nueva actividad
         const actividad = new Actividad({
@@ -120,7 +120,7 @@ const agregarUsuarioActividad = async (req, res) => {
 const actualizarActividad = async (req, res) => {
 
     const { id } = req.params;
-    const { archivo } = req.files;
+    // const { archivo } = req.files;
     const { nombre, descripcion } = req.body;
     try {
         const actividad = await Actividad.findById(id);
@@ -138,7 +138,7 @@ const actualizarActividad = async (req, res) => {
             }
         }
 
-        const nombreImagen = await subirArchivo(archivo, undefined, 'actividad');
+        const nombreImagen = await subirArchivo(req.files, undefined, 'actividad');
         actividad.nombre = nombre;
         actividad.img = nombreImagen;
         actividad.descripcion = descripcion;

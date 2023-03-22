@@ -37,9 +37,9 @@ const crearAbuelo = async (req, res) => {
     // const nombre = req.body.nombre.toUpperCase();
     // const { estado, usuario, ...body } = req.body
     const { estado, usuario, nombre, fecha_nacimiento, genero, direccion, ciudad, img } = req.body
-    const { archivo } = req.files;
+    // const { archivo } = req.files;
 
-    const nombreImg = await subirArchivo(archivo, ['png', 'jpg', 'jpeg', 'gif'], 'abuelos');
+    const nombreImg = await subirArchivo(req.files, ['png', 'jpg', 'jpeg', 'gif'], 'abuelos');
 
 
     //Generar la data a guardar
@@ -61,7 +61,7 @@ const actualizarAbuelo = async (req, res) => {
     const { id } = req.params;
 
     const { estado, usuario, ...data } = req.body;
-    const { archivo } = req.files;
+    // const { archivo } = req.files;
 
     try {
         const abuelo = await Abuelo.findById(id);
@@ -79,7 +79,7 @@ const actualizarAbuelo = async (req, res) => {
             }
         }
 
-        const nombreImagen = await subirArchivo(archivo, undefined, 'abuelos');
+        const nombreImagen = await subirArchivo(req.files, undefined, 'abuelos');
 
         abuelo.nombre = data.nombre;
         abuelo.img = nombreImagen;

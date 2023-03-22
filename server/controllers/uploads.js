@@ -34,7 +34,7 @@ const actualizarImagen = async (req, res) => {
                 });
             }
             break;
-        case 'actividades':
+        case 'actividad':
             modelo = await Actividad.findById(id);
             if (!modelo) {
                 return res.status(400).json({
