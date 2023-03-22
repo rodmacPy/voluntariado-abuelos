@@ -4,6 +4,7 @@ const { check } = require('express-validator');
 
 const { usuariosGet,
     usuariosPut,
+    usuariosPutRol,
     usuariosPost,
     usuariosDelete,
     usuariosPatch, 
@@ -17,12 +18,20 @@ router.get('/', usuariosGet);
 
 router.get('/:id', obtenerProducto);
 
-router.put('/:id', [
+router.put('/update/:id', [
     check('id', 'No es un ID valido').isMongoId(),
     check('id').custom(existeUsuarioPorId),
     // check('rol').custom(esRoleValido),
     validarCampos
 ], usuariosPut);
+
+router.put('/rol/:id', [
+    check('id', 'No es un ID valido').isMongoId(),
+    check('id').custom(existeUsuarioPorId),
+    // check('rol').custom(esRoleValido),
+    validarCampos
+], usuariosPutRol);
+
 
 router.post('/', [
     check('nombre', 'El nombre es obligatorio').notEmpty(),

@@ -30,7 +30,7 @@ export const ActualizarUsuario= () => {
    
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:8080/api/usuarios/${id}`, formData)
+        axios.put(`http://localhost:8080/api/usuarios/update/${id}`, formData)
             .then(response => {
                 navigate('/profile/usuarios')
             })

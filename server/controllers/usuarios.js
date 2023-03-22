@@ -64,6 +64,18 @@ const usuariosPut = async (req, res = response) => {
         usuario
     });
 }
+const usuariosPutRol = async (req, res = response) => {
+
+    const { id } = req.params;
+    const { rol } = req.body
+
+
+    //TODO validar contra la base de datos
+    const usuario = await Usuario.findByIdAndUpdate(id, {"rol":rol})
+    res.json({
+        usuario
+    });
+}
 
 const usuariosPatch = (req, res = response) => {
     res.json({
@@ -86,6 +98,7 @@ const usuariosDelete = async (req, res = response) => {
 module.exports = {
     usuariosGet,
     usuariosPost,
+    usuariosPutRol,
     usuariosPut,
     usuariosPatch,
     usuariosDelete,

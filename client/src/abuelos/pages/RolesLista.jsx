@@ -3,6 +3,7 @@ import axios from 'axios'
 import { NavLink } from 'react-router-dom'
 import useArreglo from '../../hooks/useArreglo';
 import '../Styles/UsuarioLista.css';
+import CambiarRol from '../components/CambiarRol';
 
 export const RolesLista = () => {
     const [usuarios, setUsuarios] = useState([]);
@@ -10,8 +11,6 @@ export const RolesLista = () => {
     const [option, setOption] = useState(0);
     const { token } = JSON.parse(localStorage.getItem('user'));
     const [contDetate, setContDetate] = useState(0);
-
-
 
     useEffect(() => {
 
@@ -59,7 +58,7 @@ export const RolesLista = () => {
                                     <tr key={idx}>
                                         <td>{res.nombre}</td>
                                         <td><strong>{res.rol}</strong></td>
-                                        <td className='td-op'><button className='edit'>Cambiar</button></td>
+                                        <td className='td-op'><CambiarRol contDetate={contDetate} setContDetate={setContDetate} id={res.uid}>Cambiar</CambiarRol></td>
                                         <td className='td-op'><button onClick={() => delate(res.uid)} className='delate'>Eliminar</button></td>
                                     </tr>
                                 )
