@@ -7,8 +7,8 @@
     max-width: 600px;
     margin: 0 auto 20px auto;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    border: 1px solid #000;
   }
   
   .card img {
@@ -39,16 +39,48 @@
     color: white;
     padding: 12px 24px;
     text-align: center;
+    margin: 0px 2em;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
+    
+  }
+
+  .participar-btn.dta{
+    background-color: #064934;
+    
   }
   .button-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin-top: 10px;
+  }
+  .container .img-container{
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    box-shadow: 10px 5px 30px rgba(0,0,0,.1);
+    border-radius: 100%;
+    border: 1px solid #000;
+  }
+  .container .img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+    overflow: clip;
+  }
+  .container .titulo{
+    font-size: 2.35rem;
+    color: #008080;
+  }
+  .container .tituloP{
+    font-size: 1.40rem;
+    font-weight: 300;
+    color: #111111;
+    --effect-scale: 1.1;
   }
