@@ -17,7 +17,7 @@ export const ActividadesLista = () => {
            desde: 5*option
           }})
         setActividades(res.data.actividades);
-        console.log(res.data)
+
         setPage(useArreglo(Math.ceil((res.data.total/5))))
       }
       GetData();
@@ -34,7 +34,7 @@ export const ActividadesLista = () => {
             console.log(error)
         }   
     }
-    console.log(actividades)
+
     return (
         <>
              <div>

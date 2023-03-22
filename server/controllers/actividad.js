@@ -1,6 +1,8 @@
-
+const fs = require('fs')
+const path = require('path')
+const { Actividad } = require('../models');
 const { subirArchivo } = require('../helpers');
-const { Actividad } = require('../models')
+const { actualizarImagen } = require('./uploads');
 
 const obtenerActividades = async (req, res) => {
     const { limite = 5, desde = 0 } = req.query;
@@ -31,7 +33,7 @@ const obtenerActividades = async (req, res) => {
     }
 };
 
-const obtenerActividad = async (req, res = response) => {
+const obtenerActividad = async (req, res) => {
 
     const { id } = req.params;
     const actividad = await Actividad.findById(id)
@@ -115,22 +117,45 @@ const agregarUsuarioActividad = async (req, res) => {
     }
 }
 
+const actualizarActividad = async (req, res) => {
 
-
-const actualizarProducto = async (req, res) => {
     const { id } = req.params;
-    const { estado, usuario, ...data } = req.body;
+    const { archivo } = req.files;
+    const { nombre, descripcion } = req.body;
+    try {
+        const actividad = await Actividad.findById(id);
+        // console.log(actividad)
+        if (!actividad) {
+            return res.status(404).json({
+                msg: 'No existe una actividad con ese id'
+            });
+        }
+        // Limpiar imágenes previas
+        if (actividad.img) {
+            const pathImagen = path.join(__dirname, `../uploads/actividad/${actividad.img}`);
+            if (fs.existsSync(pathImagen)) {
+                fs.unlinkSync(pathImagen);
+            }
+        }
 
-    if (data.nombre) {
-        data.nombre = data.nombre.toUpperCase();
+        const nombreImagen = await subirArchivo(archivo, undefined, 'actividad');
+        actividad.nombre = nombre;
+        actividad.img = nombreImagen;
+        actividad.descripcion = descripcion;
+        actividad.usuario = req.usuario._id
+
+        await actividad.save();
+
+        res.json(actividad);
+
+    } catch (error) {
+        res.status(500).json({
+            msg: 'Error al actualizar la actividad'
+        });
     }
 
-    data.usuario = req.usuario._id;
-
-    const producto = await Actividad.findByIdAndUpdate(id, data, { new: true })
-
-    res.json(producto);
 }
+
 
 const borrarActividad = async (req, res) => {
     const { id } = req.params;
@@ -140,7 +165,7 @@ const borrarActividad = async (req, res) => {
 }
 
 module.exports = {
-    actualizarProducto,
+    actualizarActividad,
     borrarActividad,
     crearActividad,
     agregarUsuarioActividad,
