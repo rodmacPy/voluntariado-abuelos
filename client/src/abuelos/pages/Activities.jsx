@@ -35,11 +35,15 @@ export const Activities = () => {
         <div className='container'>
           {actividades.map((actividad, index) =>
             <div className="card" key={index}>
-              <img src={`http://localhost:8080/api/uploads/actividad/${actividad.img}`} style={{ "width": '100%' }} />
+              <div className='img-container'>
+                  <img src={`	http://localhost:8080/api/uploads/usuarios/6415e634cd63e340c5e49074`} style={{ "width": '100%' }} />
+              </div>
+              
               <div className="container">
-                <h3>{actividad.nombre}</h3>
-                <h4>{actividad.descripcion}</h4>
+                <h3 className='titulo'>{actividad.nombre}</h3>
+                <h4 className='tituloP'>{actividad.descripcion}</h4>
                 <div className="button-container">
+                  <button className="participar-btn dta" > ver detalle</button>
                   <button className="participar-btn" onClick={() => handleParticipar(actividad._id)}>Participar</button>
                 </div>
               </div>
